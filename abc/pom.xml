@@ -11,6 +11,8 @@
 
     <modules>
         <module>eureka-server</module>
+        <module>eureka-server-b</module>
+        <module>eureka-server-c</module>
         <module>eureka-client-a</module>
         <module>eureka-client-b</module>
     </modules>
@@ -22,6 +24,7 @@
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.8.RELEASE</spring-cloud-alibaba.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
     </properties>
 
     <dependencies>
@@ -59,6 +62,11 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

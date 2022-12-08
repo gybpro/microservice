@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-// @EnableEurekaClient // 将服务注册到Eureka注册中心
-@EnableDiscoveryClient // 将服务注册到注册中心(各种注册中心，如Zookeeper、Eureka、Nacos等)
+// @EnableEurekaClient // 将服务注册到Eureka注册中心，Eureka提供
+@EnableDiscoveryClient // 将服务注册到注册中心(各种注册中心，如Zookeeper、Eureka、Nacos等)，SpringCloud提供
 public class EurekaClientAApplication {
 
     public static void main(String[] args) {
