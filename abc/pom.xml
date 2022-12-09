@@ -10,11 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>eureka-server</module>
-        <module>eureka-server-b</module>
-        <module>eureka-server-c</module>
-        <module>eureka-client-a</module>
-        <module>eureka-client-b</module>
+        <module>common</module>
+        <module>cloud</module>
     </modules>
 
     <properties>
@@ -25,6 +22,7 @@
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.8.RELEASE</spring-cloud-alibaba.version>
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <common.version>1.0</common.version>
     </properties>
 
     <dependencies>
@@ -67,6 +65,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.high</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
