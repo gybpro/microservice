@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.high.springcloud.mapper.ProductInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.high.springcloud.domain.ProductInfo">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="productName" column="product_name" jdbcType="VARCHAR"/>
+            <result property="rate" column="rate" jdbcType="DECIMAL"/>
+            <result property="cycle" column="cycle" jdbcType="INTEGER"/>
+            <result property="releaseTime" column="release_time" jdbcType="DATE"/>
+            <result property="productType" column="product_type" jdbcType="INTEGER"/>
+            <result property="productNo" column="product_no" jdbcType="VARCHAR"/>
+            <result property="productMoney" column="product_money" jdbcType="DECIMAL"/>
+            <result property="leftProductMoney" column="left_product_money" jdbcType="DECIMAL"/>
+            <result property="bidMinLimit" column="bid_min_limit" jdbcType="DECIMAL"/>
+            <result property="bidMaxLimit" column="bid_max_limit" jdbcType="DECIMAL"/>
+            <result property="productStatus" column="product_status" jdbcType="INTEGER"/>
+            <result property="productFullTime" column="product_full_time" jdbcType="TIMESTAMP"/>
+            <result property="productDesc" column="product_desc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,product_name,rate,
+        cycle,release_time,product_type,
+        product_no,product_money,left_product_money,
+        bid_min_limit,bid_max_limit,product_status,
+        product_full_time,product_desc
+    </sql>
+</mapper>

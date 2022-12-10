@@ -1,6 +1,6 @@
-package com.high.controller;
+package com.high.springcloud.controller;
 
-import com.high.shop.entity.ResultDTO;
+import com.high.springcloud.shop.entity.ResultDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +54,11 @@ public class ProviderController {
                                                      @RequestParam String username,
                                                      @RequestParam String password) {
         return packingData(id, username, password);
+    }
+
+    @GetMapping("/testRibbon")
+    public String testRibbon() {
+        return "hello ribbon";
     }
 
     private ResultDTO<Map<String, Object>> packingData(Integer id, String username, String password) {

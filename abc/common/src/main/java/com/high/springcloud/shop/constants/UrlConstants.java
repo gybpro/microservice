@@ -1,10 +1,10 @@
-package com.high.shop.constants;
+package com.high.springcloud.shop.constants;
 
 public interface UrlConstants {
 
-    //单机访问
+    // 单机访问
     // String BASE_URL = "http://localhost:8081/";
-    //负载均衡请求访问，将ip和端口替换为微服务名称
+    // 负载均衡请求访问，将ip和端口替换为微服务名称，Ribbon会自动轮询同一名称的微服务列表
     String BASE_LOAD_BALANCED_URL = "http://EUREKA-CLIENT-PROVIDER/";
 
     /* String GET_PROVIDER_01 = BASE_URL + "provider/01/{id}?username=zhangsan&password=123";

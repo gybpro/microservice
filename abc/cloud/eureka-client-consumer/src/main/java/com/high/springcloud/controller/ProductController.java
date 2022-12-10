@@ -1,4 +1,4 @@
-package com.high.controller;
+package com.high.springcloud.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.high.shop.entity;
+package com.high.springcloud.shop.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

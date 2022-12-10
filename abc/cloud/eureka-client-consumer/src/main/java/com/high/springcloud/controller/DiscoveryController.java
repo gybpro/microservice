@@ -1,4 +1,4 @@
-package com.high.controller;
+package com.high.springcloud.controller;
 
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

@@ -1,7 +1,7 @@
-package com.high.controller;
+package com.high.springcloud.controller;
 
-import com.high.shop.constants.UrlConstants;
-import com.high.shop.entity.ResultDTO;
+import com.high.springcloud.shop.constants.UrlConstants;
+import com.high.springcloud.shop.entity.ResultDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
