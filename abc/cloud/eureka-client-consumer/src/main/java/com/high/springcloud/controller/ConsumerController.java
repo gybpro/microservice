@@ -55,8 +55,11 @@ public class ConsumerController {
         uriVariables.put("id", 111);
 
         ResponseEntity<ResultDTO> entity = restTemplate.getForEntity(
+                // 参数1：请求路径
                 UrlConstants.GET_PROVIDER_01,
+                // 参数2：返回结果类型
                 ResultDTO.class,
+                // 参数3：参数集
                 uriVariables
         );
 
@@ -93,9 +96,13 @@ public class ConsumerController {
         requestBody.put("age",22);
 
         ResponseEntity<ResultDTO> entity = restTemplate.postForEntity(
+                // 参数1：请求路径
                 UrlConstants.POST_PROVIDER_02,
+                // 参数2：请求体中数据
                 requestBody,
+                // 参数3：返回结果类型
                 ResultDTO.class,
+                // 参数4：参数集
                 uriVariables
         );
 
@@ -138,8 +145,11 @@ public class ConsumerController {
         requestBody.put("age",44);
 
         restTemplate.put(
+                // 参数1：请求路径
                 UrlConstants.PUT_PROVIDER_03,
+                // 参数2：请求体数据
                 requestBody,
+                // 参数3：参数集
                 uriVariables
         );
 
@@ -158,7 +168,9 @@ public class ConsumerController {
         uriVariables.put("id", 666);
 
         restTemplate.delete(
+                // 参数1：请求路径
                 UrlConstants.DELETE_PROVIDER_04,
+                // 参数2：参数集
                 uriVariables
         );
 

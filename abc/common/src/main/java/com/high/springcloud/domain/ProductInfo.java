@@ -1,5 +1,7 @@
 package com.high.springcloud.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -13,6 +15,7 @@ import java.util.Date;
 @TableName(value ="b_product_info")
 @Data
 public class ProductInfo implements Serializable {
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     private String productName;

@@ -20,6 +20,11 @@ public class DiscoveryController {
         this.discoveryClient = discoveryClient;
     }
 
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello world";
+    }
+
     @GetMapping("/doDiscovery")
     public String doDiscovery(String serviceName) {
         // 服务发现，通过服务的应用名称找到服务的具体信息
