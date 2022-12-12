@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/p")
-public class ProductController {
+public class FeignProductController {
     /*
     Feign的使用是编写接口，注入接口，但是实际运行中一定是需要有对象的
     那么feign肯定是使用了动态代理实现代理对象的，实际上也是如此，
@@ -29,7 +29,7 @@ public class ProductController {
 
     private final RestTemplate restTemplate;
 
-    public ProductController(ProviderProductFeign providerProductFeign, RestTemplate restTemplate) {
+    public FeignProductController(ProviderProductFeign providerProductFeign, RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         this.providerProductFeign = providerProductFeign;
         // 手写简易Feign，实现无参数get请求
