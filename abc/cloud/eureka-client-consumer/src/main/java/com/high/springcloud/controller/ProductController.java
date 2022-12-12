@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.high.springcloud.domain.ProductInfo;
 import com.high.springcloud.feign.ProviderProductFeign;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -22,8 +23,37 @@ public class ProductController {
      */
     private final ProviderProductFeign providerProductFeign;
 
-    public ProductController(ProviderProductFeign providerProductFeign) {
+    private final RestTemplate restTemplate;
+
+    public ProductController(ProviderProductFeign providerProductFeign, RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
         this.providerProductFeign = providerProductFeign;
+        // 手写简易Feign，实现无参数get请求
+        /* this.providerProductFeign = (ProviderProductFeign) Proxy.newProxyInstance(
+                // 类加载器：JDK动态代理要求实现类与接口为同一类加载器加载
+                ProviderProductFeign.class.getClassLoader(),
+                // 接口集(实现的所有接口)
+                new Class[]{ProviderProductFeign.class},
+                // 回调方法(调用事件句柄)
+                (proxy, method, args) -> {
+                    GetMapping getMapping = method.getAnnotation(GetMapping.class);
+                    String[] paths = getMapping.value();
+                    String path = paths[0];
+
+                    Class<?> clazz = method.getDeclaringClass();
+                    FeignClient feignClient = clazz.getAnnotation(FeignClient.class);
+                    String serviceName = feignClient.value();
+                    RequestMapping requestMapping = clazz.getAnnotation(RequestMapping.class);
+                    String[] prePaths = requestMapping.value();
+                    String prePath = prePaths[0];
+
+                    Class<?> returnType = method.getReturnType();
+
+                    // 无参数get方法实现
+                    String url = "http://" + serviceName + prePath + path ;
+                    return restTemplate.getForObject(url, returnType);
+                }
+        ); */
     }
 
     @GetMapping("/list")
