@@ -17,7 +17,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class ProductInfoController {
     /*
     注入通用service，一般在控制层使用通用service，在业务层使用通用mapper
     但也有例外，因为通用service可以进行批量增删改查操作，而通用mapper只能
@@ -26,7 +26,7 @@ public class ProductController {
      */
     private final ProductInfoService productInfoService;
 
-    public ProductController(ProductInfoService productInfoService) {
+    public ProductInfoController(ProductInfoService productInfoService) {
         this.productInfoService = productInfoService;
     }
 
