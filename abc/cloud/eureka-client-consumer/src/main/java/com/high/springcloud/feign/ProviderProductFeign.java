@@ -5,6 +5,9 @@ import com.high.springcloud.domain.ProductInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,4 +54,19 @@ public interface ProviderProductFeign {
 
     @DeleteMapping("/removeByIds")
     Boolean removeByIds(@RequestParam List<Integer> ids);
+
+    // 偏差14个小时
+    @GetMapping("/testTime1")
+    String testTime(@RequestParam Date date);
+    // 只有年月日，没有偏差
+    @GetMapping("/testTime2")
+    String testTime(@RequestParam LocalDate date);
+    // 丢失s
+    @GetMapping("/testTime3")
+    String testTime(@RequestParam LocalDateTime date);
+    // 不建议单独传递时间，如果有，则要用字符串传递
+    @GetMapping("/testTime4")
+    String testTime(@RequestParam String date);
+    @PostMapping("/testTime5")
+    String testTime(@RequestBody ProductInfo productInfo);
 }

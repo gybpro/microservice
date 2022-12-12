@@ -6,6 +6,10 @@ import com.high.springcloud.feign.ProviderProductFeign;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -105,5 +109,41 @@ public class ProductController {
     @DeleteMapping("/removeByIds")
     public Boolean removeByIds(@RequestParam List<Integer> ids) {
         return providerProductFeign.removeByIds(ids);
+    }
+
+    /*
+    Mon Dec 12 20:32:36 CST 2022
+    Tue Dec 13 10:32:36 CST 2022  +- 14个小时
+    1.不建议单独传递时间参数
+    2.转成字符串传递(没有偏差)
+    3.jdk8新日期类型 LocalDate(只有年月日，没有偏差) LocalDateTime(会丢失s)
+    4.包含在对象中传递()
+     */
+    @GetMapping("/testTime")
+    public String testTime() {
+        // 获取日期
+        Date date = new Date();
+        // Date -> LocalDateTime
+        LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        // LocalDateTime -> LocalDate
+        LocalDate localDate = localDateTime.toLocalDate();
+        // 直接传递Date日期，会偏差14个小时
+        String useDate = providerProductFeign.testTime(date);
+        // 传递LocalDate，没有偏差，但只有年月日
+        String useLocalDate = providerProductFeign.testTime(localDate);
+        // 传递LocalDateTime，会丢失s
+        String useLocalDateTime = providerProductFeign.testTime(localDateTime);
+        // 使用字符串没有偏差
+        String useStr = providerProductFeign.testTime(date.toString());
+        // 使用对象
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setReleaseTime(date);
+        String useObj = providerProductFeign.testTime(productInfo);
+        return "原始日期：date=" + date +
+                " 使用Date传递：useDate=" + useDate +
+                " 使用LocalDate传递：useLocalDate=" + useLocalDate +
+                " 使用LocalDateTime传递：useLocalDateTime=" + useLocalDateTime +
+                " 使用字符串传递：useStr=" + useStr +
+                " 使用对象传递：useObj=" + useObj;
     }
 }

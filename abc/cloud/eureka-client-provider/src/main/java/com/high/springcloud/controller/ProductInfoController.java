@@ -8,6 +8,9 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -116,5 +119,30 @@ public class ProductInfoController {
     @DeleteMapping("/removeByIds")
     public Boolean removeByIds(@RequestParam List<Integer> ids) {
         return productInfoService.removeByIds(ids);
+    }
+
+    // 偏差14个小时
+    @GetMapping("testTime1")
+    public String testTime(@RequestParam Date date) {
+        return date.toString();
+    }
+    // 只有年月日，没有偏差
+    @GetMapping("testTime2")
+    public String testTime(@RequestParam LocalDate date) {
+        return date.toString();
+    }
+    // 丢失s
+    @GetMapping("testTime3")
+    public String testTime(@RequestParam LocalDateTime date) {
+        return date.toString();
+    }
+    // 不建议单独传递时间，如果有，则要用字符串传递
+    @GetMapping("testTime4")
+    public String testTime(@RequestParam String date) {
+        return date;
+    }
+    @PostMapping("/testTime5")
+    String testTime(@RequestBody ProductInfo productInfo) {
+        return productInfo.getReleaseTime().toString();
     }
 }
