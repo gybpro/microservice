@@ -20,7 +20,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/consumer")
-public class ConsumerController {
+public class RestTemplateConsumerController {
     /*
     RestTemplate远程调用：同步的http RestFul Api调用
     RestFul是一种以动词的形式对URL资源进行操作的规范原则
@@ -44,7 +44,7 @@ public class ConsumerController {
      */
     private final RestTemplate restTemplate;
 
-    public ConsumerController(RestTemplate restTemplate) {
+    public RestTemplateConsumerController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
