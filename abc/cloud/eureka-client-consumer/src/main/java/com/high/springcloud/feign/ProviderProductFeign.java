@@ -28,17 +28,18 @@ public interface ProviderProductFeign {
     List<ProductInfo> list();
 
     @GetMapping("/listByName")
-    List<ProductInfo> listByName(@RequestParam String name);
+    List<ProductInfo> listByName(@RequestParam("name") String name);
 
     @GetMapping("/one/{id}")
-    ProductInfo one(@PathVariable Integer id);
+    ProductInfo one(@PathVariable("id") Integer id);
 
     @GetMapping("/page")
-    Page<ProductInfo> page(@RequestParam Page<ProductInfo> page);
+    Page<ProductInfo> page(@RequestParam("page") Page<ProductInfo> page);
 
     @GetMapping("/pageByIds")
-    Page<ProductInfo> pageByIds(@RequestParam long current, @RequestParam long size,
-                                       @RequestParam(required = false) List<Integer> ids);
+    Page<ProductInfo> pageByIds(@RequestParam("current") long current,
+                                @RequestParam("size") long size,
+                                @RequestParam(required = false, name = "ids") List<Integer> ids);
 
     @PostMapping("/save")
     Boolean save(@RequestBody ProductInfo productInfo);
@@ -50,23 +51,23 @@ public interface ProviderProductFeign {
     Boolean saveOrUpdateBatch(@RequestBody List<ProductInfo> productInfoList);
 
     @DeleteMapping("/removeById/{id}")
-    Boolean removeById(@PathVariable Integer id);
+    Boolean removeById(@PathVariable("id") Integer id);
 
     @DeleteMapping("/removeByIds")
-    Boolean removeByIds(@RequestParam List<Integer> ids);
+    Boolean removeByIds(@RequestParam("ids") List<Integer> ids);
 
     // 偏差14个小时
     @GetMapping("/testTime1")
-    String testTime(@RequestParam Date date);
+    String testTime(@RequestParam("date") Date date);
     // 只有年月日，没有偏差
     @GetMapping("/testTime2")
-    String testTime(@RequestParam LocalDate date);
+    String testTime(@RequestParam("date") LocalDate date);
     // 丢失s
     @GetMapping("/testTime3")
-    String testTime(@RequestParam LocalDateTime date);
+    String testTime(@RequestParam("date") LocalDateTime date);
     // 不建议单独传递时间，如果有，则要用字符串传递
     @GetMapping("/testTime4")
-    String testTime(@RequestParam String date);
+    String testTime(@RequestParam("date") String date);
     @PostMapping("/testTime5")
     String testTime(@RequestBody ProductInfo productInfo);
 }
