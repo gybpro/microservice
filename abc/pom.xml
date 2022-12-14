@@ -23,6 +23,7 @@
         <spring-cloud-alibaba.version>2.2.8.RELEASE</spring-cloud-alibaba.version>
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <common.version>1.0</common.version>
+        <spring-boot-admin.version>2.3.0</spring-boot-admin.version>
     </properties>
 
     <dependencies>
@@ -70,6 +71,11 @@
                 <groupId>com.high</groupId>
                 <artifactId>common</artifactId>
                 <version>${common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,21 @@
+server:
+    port: 10086
+spring:
+    application:
+        name: admin-server
+eureka:
+    client:
+        service-url:
+            defaultZone: ${EUREKASERVER:http://localhost:8761/eureka/}
+    instance:    # eureka instance配置
+        # 配置实例id
+        instance-id: ${spring.application.name}:${server.port}
+        # 显示ip
+        prefer-ip-address: true
+management:
+    endpoints:
+        web:
+            exposure:
+                # '*'暴露所有监控端点，默认只暴露health，info
+                # 如果一个服务需要被监控，那么就需要将自身的一些信息暴露出去
+                include: '*'
