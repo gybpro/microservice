@@ -19,6 +19,7 @@
         <module>eureka-client-consumer</module>
         <module>eureka-client-provider</module>
         <module>admin-server</module>
+        <module>gateway-server</module>
     </modules>
 
 </project>
