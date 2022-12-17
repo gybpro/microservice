@@ -8,11 +8,12 @@ spring:
             # 默认开启网关
             enabled: true
             routes:
-                -   # 路由id，保证唯一性
+                - # 路由id，保证唯一性
                     id: login-service-route
                     # 统一资源定位符
                     # 单击访问
                     # uri: http://localhost:8080
+                    # 负载均衡访问
                     uri: lb://eureka-client-consumer
                     # 断言规则
                     predicates:
@@ -30,6 +31,12 @@ spring:
                         #- Query=aaa, bbb
                         # 指定请求方式的断言规则
                         - Method=GET, POST, PUT, DELETE
+            discovery:
+                locator:
+                    # 开启动态路由，自动通过服务名称发现服务
+                    enabled: true
+                    # 服务名称转小写
+                    lower-case-service-id: true
 eureka:
     client:
         service-url:
