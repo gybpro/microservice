@@ -31,6 +31,34 @@ spring:
                         #- Query=aaa, bbb
                         # 指定请求方式的断言规则
                         - Method=GET, POST, PUT, DELETE
+                    filters:
+                        # 添加请求头的过滤器
+                        #- AddRequestHeader=aaa, bbb
+                        # 添加请求参数的过滤器
+                        #- AddRequestParameter=aaa, bbb
+                        # 添加响应头的过滤器，在浏览器中查看
+                        #- AddResponseHeader=aaa, bbb
+                        # 设置响应的状态码的过滤器
+                        # - SetStatus=404
+                        # 去除前缀路径数量的过滤器
+                        # http://localhost:7001/abcd/01 -> http://localhost:7001/01
+                        # http://localhost:7001/abcd/abcd/01 -> http://localhost:7001/abcd/01
+                        # - StripPrefix=1
+                        # 路径重写的过滤器，很好有效的保护了路径的安全
+                        # - RewritePath=/p/?(?<segment>.*), /pro/$\{segment}
+                        # 重定向的过滤器
+                        # - RedirectTo=302, https://www.bilibili.com
+                        # 配置请求限流器
+                        - # 过滤器名称
+                            name: RequestRateLimiter
+                            # 过滤器参数
+                            args:
+                                # 通过spel表达式获取ioc容器中的bean
+                                key-resolver: '#{@ipKeyResolver}'
+                                # 生成令牌的速率
+                                redis-rate-limiter.replenishRate: 1
+                                # 令牌桶的容量
+                                redis-rate-limiter.burstCapacity: 3
             discovery:
                 locator:
                     # 开启动态路由，自动通过服务名称发现服务
