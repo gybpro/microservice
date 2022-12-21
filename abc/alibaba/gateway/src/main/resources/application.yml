@@ -1,0 +1,21 @@
+#server:
+#    port: ${NACOSPORT:80}
+#spring:
+#    application:
+#        name: gateway
+#    cloud:
+#        nacos:
+#            server-addr: localhost:8848
+#            username: nacos
+#            password: nacos
+#            discovery:
+#                namespace: aa9aaf73-83d6-4b5e-9f8f-fc842a541c77
+#        gateway:
+#            discovery:
+#                # 路由定位器配置
+#                locator:
+#                    # 开启动态路由
+#                    enabled: true
+#                    # 服务名称自动转小写
+#                    lower-case-service-id: true、
+
