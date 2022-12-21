@@ -12,6 +12,7 @@
     <modules>
         <module>common</module>
         <module>cloud</module>
+        <module>alibaba</module>
     </modules>
 
     <properties>
