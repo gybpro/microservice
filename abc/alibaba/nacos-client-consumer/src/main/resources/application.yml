@@ -1,0 +1,20 @@
+#server:
+#    port: 8080
+#spring:
+#    application:
+#        name: nacos-client-consumer
+#    cloud:
+#        nacos:
+#            # 不指定命名空间会自动注册到public，不指定分组会自动注册到DEFAULT_GROUP
+#            # 不指定服务地址会自动注册到localhost:8848
+#            server-addr: localhost:8848
+#            username: nacos
+#            password: nacos
+#            # 注册相关配置
+#            discovery:
+#                # 命名空间
+#                namespace: aa9aaf73-83d6-4b5e-9f8f-fc842a541c77
+#                # 分组
+#                # group: A_GROUP
+#                # 这个才是服务列表的名称，如果不指定，默认是${spring.application.name}
+#                service: consumer-service
