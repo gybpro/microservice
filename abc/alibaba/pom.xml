@@ -11,6 +11,7 @@
 
     <artifactId>alibaba</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>nacos-client-consumer</module>
         <module>nacos-client-provider</module>
