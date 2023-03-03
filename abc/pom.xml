@@ -13,6 +13,7 @@
         <module>common</module>
         <module>cloud</module>
         <module>alibaba</module>
+        <module>boot</module>
     </modules>
 
     <properties>
