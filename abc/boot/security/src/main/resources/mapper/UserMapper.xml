@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.high.springcloud.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.high.springcloud.domain.User">
+        <id property="userid" column="userid" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="userpwd" column="userpwd" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        userid
+        ,username,userpwd,
+        sex,address,status
+    </sql>
+
+    <select id="selectUserPerCodeByUserId" resultType="java.lang.String">
+        select percode
+        from sys_permission p
+                 join sys_role_permission rp on p.perid = rp.perid
+                 join sys_user_role ur on rp.roleid = ur.roleid
+        where ur.userid = #{userid, jdbcType=INTEGER}
+    </select>
+
+    <select id="selectUserRoleNameByUserId" resultType="java.lang.String">
+        select rolename
+        from sys_role r
+                 join sys_user_role ur on r.roleid = ur.roleid
+        where ur.userid = #{userid, jdbcType=INTEGER}
+    </select>
+</mapper>
