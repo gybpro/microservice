@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 基于内存认证
-        auth.inMemoryAuthentication();
+        // auth.inMemoryAuthentication();
         // 基于数据库认证
         auth.userDetailsService(userDetailsService);
     }
