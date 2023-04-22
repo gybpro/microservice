@@ -43,3 +43,4 @@ build/
 mvnw
 mvnw.cmd
 .mvn/
+/abc/alibaba/nacos_config_export_20230304093823.zip
