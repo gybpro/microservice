@@ -1,0 +1,39 @@
+server:
+    port: ${NACOSPORT:9001}
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/security?characterEncoding=UTF-8
+        username: root
+        password: 123456
+    application:
+        name: oauth2
+    redis:
+        host: localhost
+        port: 6379
+        database: 0
+        password: 123456
+
+#    jackson:
+#        # 过滤json数据中属性为null的值
+#        default-property-inclusion: non_null
+## mybatis-plus配置
+#mybatis-plus:
+#    # mapper.xml文件包扫描
+#    mapper-locations: classpath:/mapper/*Mapper.xml
+#    # 实体类别名包扫描
+#    type-aliases-package: com.high.springcloud.domain
+#    # mybatis配置
+#    configuration:
+#        # 配置SQL日志
+#        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    # mapper的全局配置
+#    global-config:
+#        # db配置
+#        db-config:
+#            # 逻辑删除的字段名称
+#            logic-delete-field: status
+#            # 已被逻辑删除的值
+#            logic-delete-value: 0
+#            # 未被逻辑删除的值
+#            logic-not-delete-value: 1
