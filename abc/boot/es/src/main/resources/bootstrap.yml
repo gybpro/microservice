@@ -1,0 +1,24 @@
+# 系统级别配置文件(bootstrap.yml)，优先级高于用户级别配置文件(application.yml)
+# 配置用户中心相关内容，用于启动时，加载配置中心的配置文件到本地
+spring:
+    cloud:
+        # nacos配置信息
+        nacos:
+            # 配置中心的配置信息
+            config:
+                # 配置中心的服务地址
+                server-addr: localhost:8848
+                # 配置中心的用户名密码
+                username: nacos
+                password: nacos
+                # 加载配置中心命名空间对应的环境，默认加载的是public环境
+                namespace: aa9aaf73-83d6-4b5e-9f8f-fc842a541c77
+                # 群组名称
+                group: DEFAULT_GROUP
+                # 配置文件前缀
+                prefix: application
+                # 配置文件后缀
+                file-extension: yml
+    # 加载的配置文件
+    profiles:
+        active: nacos, jackson

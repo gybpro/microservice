@@ -15,6 +15,7 @@
     <modules>
         <module>security</module>
         <module>oauth2</module>
+        <module>es</module>
     </modules>
 
 </project>
